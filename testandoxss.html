@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de XSS (Apenas para fins educacionais)</title>
+</head>
+<body>
+    <h1>Exemplo de XSS (Apenas para fins educacionais)</h1>
+
+    <form>
+        <label for="search">Pesquisa:</label>
+        <input type="text" id="search" name="search">
+        <input type="submit" value="Pesquisar">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var searchTerm = document.querySelector('#search').value;
+            document.querySelector('#result').innerHTML = 'Resultado da pesquisa: ' + searchTerm;
+        });
+    </script>
+</body>
+</html>
